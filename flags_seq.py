@@ -16,13 +16,12 @@ with open('./flags.txt', 'r') as ft:
 website = 'https://www.sciencekids.co.nz/images/pictures/flags680/'
 
 
-# for item in flag_txt:
-#     flag = item + '.jpg'
-#     response = requests.get(website + flag)
-flag = 'Afghanistan.jpg'
-with open('./flags/'+flag, 'wb') as flag_name_file:
-    print('it works')
-
+for item in flag_txt:
+    flag = item + '.jpg'
+    response = requests.get(website + flag)
+    with open('./flags/'+flag, 'wb') as flag_name_file:
+        flag_name_file.write(response.content)
+        
 time_stop = time.perf_counter()
 
 print(f'Elapsed time: {time_stop-time_start} seconds')

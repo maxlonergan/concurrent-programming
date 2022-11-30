@@ -1,6 +1,8 @@
-
-import requests
+'''
+downloads flags sequentially
+'''
 import time
+import requests
 
 time_start = time.perf_counter()
 
@@ -26,5 +28,5 @@ print(f'Elapsed time: {round(time_stop-time_start, 2)} seconds')
 print(f'{total_bytes} bytes downloaded')
 
 with open('flags_seq.out', 'w') as seq_out:
-    seq_out.writelines(f'Elapsed time: {time_stop-time_start} seconds', )
-    seq_out.writelines(f'{total_bytes} bytes downloaded')
+    seq_out.write(f'Elapsed time: {time_stop-time_start} seconds \n')
+    seq_out.write(f'{total_bytes} bytes downloaded')
